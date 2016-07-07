@@ -69,14 +69,11 @@ class DockerfileParser(object):
     def __init__(self, path=None, cache_content=False, env_replace=True):
         """
         Initialize path to Dockerfile
-        :param path: path to (directory with) Dockerfile
+        :param path: path to Dockerfile
         :param cache_content: cache Dockerfile content inside DockerfileParser
         """
         path = path or '.'
-        if path.endswith(DOCKERFILE_FILENAME):
-            self.dockerfile_path = path
-        else:
-            self.dockerfile_path = os.path.join(path, DOCKERFILE_FILENAME)
+        self.dockerfile_path = path
 
         self.cache_content = cache_content
         self.cached_content = ''  # unicode string
